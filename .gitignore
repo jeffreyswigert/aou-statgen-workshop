@@ -1,0 +1,24 @@
+results/
+runs/
+lab_data/
+tools/
+config.aou.sh
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.fls
+*.fdb_latexmk
+build/
+
+# instructor-only materials, kept local
+aou_cli_workshop.tex
+build.sh
+docs/lab_handout.tex
+docs/INSTRUCTOR_GUIDE.md
+docs/PRESENTER_SCRIPT.md
+docs/AOU_ADAPTATION.md
+docs/README_INSTRUCTOR.md

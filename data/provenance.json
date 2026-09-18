@@ -1,0 +1,11 @@
+{
+  "data_mode": "synthetic",
+  "seed": 20260918,
+  "samples": 600,
+  "variants": 2400,
+  "causal_variant": "SIMV001201",
+  "effect_per_ALT": 0.9,
+  "build": "fictitious positions on chr22; no biological interpretation",
+  "relatedness": "independently sampled; no pedigrees",
+  "PCs": "estimated from the synthetic genotypes during preparation"
+}

@@ -1,0 +1,4 @@
+Additive tests: 2330
+Valid p-values: 2330
+Failed tests: 0
+Bonferroni threshold for this exercise: 2.146e-05

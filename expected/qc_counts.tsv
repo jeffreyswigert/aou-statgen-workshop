@@ -1,0 +1,5 @@
+stage	samples	variants
+input	600	2400
+eligible_sites	600	2390
+sample_filter	588	2390
+variant_filter	588	2330

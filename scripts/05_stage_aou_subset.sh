@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# 05_stage_aou_subset.sh -- fetch an INSTRUCTOR-PREPARED real-data bundle
+# (not used in the default synthetic lab). Two habits worth reading it for:
+# it validates the small metadata files BEFORE downloading genotype bytes,
+# and it refuses biobank-scale inputs outright -- guardrails first, data second.
 # Only a SMALL, instructor-prepared bundle in an authorized workspace bucket.
 # Usage: bash scripts/05_stage_aou_subset.sh gs://BUCKET/path/to/prepared-subset
 set -euo pipefail

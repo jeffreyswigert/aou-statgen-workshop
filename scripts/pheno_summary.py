@@ -12,6 +12,13 @@ cannot be recovered by subtracting the visible ones from the total).
 
 First lines of output are the resolved concept names straight from the CDR's
 concept table: read them. A concept ID is a claim until the name confirms it.
+
+TRY IT: add a phenotype of your own. Find it in the public Data Browser
+(databrowser.researchallofus.org), note its concept ID and domain, and append
+a row to data/pheno_menu.tsv (copy the row whose source type matches --
+program_pm / ehr_lab / survey / ehr_condition -- they generate different SQL).
+Then check the resolved concept name the script prints. To see the SQL
+without spending a query: DRY_RUN=1 bash scripts/06_pheno_summary.sh <id>
 """
 import csv, io, os, subprocess, sys
 from pathlib import Path

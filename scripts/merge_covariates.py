@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""Assemble data/covariates.tsv: base covariates (age, sex) + the five PCs
+that 01_prepare_synthetic.sh computed. Joined by IID -- by ID, never by row
+order, same rule as everywhere else in this workshop."""
 import csv
 from pathlib import Path
 

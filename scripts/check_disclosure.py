@@ -14,6 +14,14 @@ percentages that imply small counts still need a human reader.
 
 Exit is nonzero -- blocking the save under `set -e` -- only when DATA_MODE=aou,
 a B or C finding exists, and DISCLOSURE_ACK=1 is not set.
+
+TRY IT: run it on any folder of your own tables --
+    python3 scripts/check_disclosure.py path/to/your/results
+and watch what the AoU-mode gate feels like:
+    DATA_MODE=aou python3 scripts/check_disclosure.py results; echo "exit=$?"
+Adapting this pattern to your own pipeline is the single most reusable thing
+in this workshop: screen at the export boundary, block by default, and make
+the override an explicit, recorded decision.
 """
 import os, re, sys
 from itertools import combinations

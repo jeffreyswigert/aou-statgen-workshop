@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# 01_prepare_synthetic.sh -- REGENERATE the synthetic dataset from scratch.
+# You do NOT need to run this for the lab: data/ ships ready to use. It exists
+# so the whole dataset is reproducible from code (fixed seed), and so you can
+# read exactly how the planted problems and the five PCs were made.
 source "$(dirname "$0")/common.sh"
 [[ "$DATA_MODE" == synthetic ]] || { echo 'Synthetic preparation requires DATA_MODE=synthetic' >&2; exit 1; }
 python3 scripts/make_synthetic.py

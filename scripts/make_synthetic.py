@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Generate fictitious, independent samples. Python standard library only."""
+"""Generate the fictitious teaching dataset. Python standard library only.
+
+Run via 01_prepare_synthetic.sh; the lab does not need it (data/ ships ready).
+Everything is seeded, so every rebuild is byte-identical. Reading this file
+answers "what did QC actually find?": it plants a causal variant (effect 0.9
+per ALT copy at SIMV001201), two sampling strata with different allele
+frequencies, twelve high-missingness people, forty high-missingness sites,
+twenty very rare sites, and ten LowQual site flags.
+"""
 import csv, json, random
 from pathlib import Path
 r = random.Random(20260918)

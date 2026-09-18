@@ -12,6 +12,8 @@ Mills, Melinda C., Nicola Barban, and Felix C. Tropf. 2020. *An Introduction to 
 
 ## All of Us and Workbench
 
+- [Data Browser](https://databrowser.researchallofus.org): public, aggregate-only exploration of surveys, physical measurements, and EHR domains; the source of the concept IDs in `data/pheno_menu.tsv`.
+
 - [CDR v9 announcement](https://support.researchallofus.org/hc/en-us/articles/50653909888788-Our-Largest-Genomic-Dataset-Curated-Data-Repository-version-9): v9 availability in the updated Workbench.
 - [Data Dictionaries](https://support.researchallofus.org/hc/en-us/articles/360033200232-Data-Dictionaries): current release references and data collection resources.
 - [Genomic and multi-omic data organization](https://support.researchallofus.org/hc/en-us/articles/49999549117588-How-the-All-of-Us-Genomic-and-multi-omics-data-are-organized): Controlled Tier, file types, auxiliary data. Includes a release-specific PDF.

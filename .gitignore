@@ -22,3 +22,5 @@ docs/INSTRUCTOR_GUIDE.md
 docs/PRESENTER_SCRIPT.md
 docs/AOU_ADAPTATION.md
 docs/README_INSTRUCTOR.md
+*.synctex.gz
+docs/lab_handout.pdf

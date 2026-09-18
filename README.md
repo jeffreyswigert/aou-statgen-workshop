@@ -64,6 +64,24 @@ fake data. Source its `env.sh`, run the same four commands unchanged, and the
 save lands in a fake local bucket. Ask your instructor for the sandbox
 repository.
 
+## Stretch exercise: a real phenotype
+
+With Controlled Tier access and `CDR_DATASET` + `BILLING_PROJECT` set in
+`config.sh`, you can summarize a real AoU phenotype from a curated menu
+spanning program measurements, EHR labs, surveys, and EHR conditions:
+
+```bash
+bash scripts/06_pheno_summary.sh            # show the menu
+bash scripts/06_pheno_summary.sh height     # aggregates only, byte-capped
+```
+
+The script resolves and prints the concept names first (an ID is a claim until
+the name confirms it), queries aggregates only, and suppresses counts of 1–20.
+Each menu row notes the trap its source type is known for. Find the same
+phenotype in the public [Data Browser](https://databrowser.researchallofus.org)
+to see where the concept IDs come from. Real summaries stay in the workspace
+unless they clear dissemination review.
+
 ## After the workshop
 
 These scripts demonstrate a workflow, not a complete AoU GWAS protocol:

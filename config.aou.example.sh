@@ -11,3 +11,18 @@ export MEMORY_MB=1024
 export WORKSHOP_BUCKET=''
 export BILLING_PROJECT=''
 export CDR_DATASET=''
+
+# --- Session 3 (live v9 data). Defaults are the real resource paths; the ---
+# --- local sandbox redirects them by setting the same variables.         ---
+# Which chromosome to stage and score (small ones keep the lab fast).
+export CHROM="${CHROM:-22}"
+# HapMap3-filtered per-chromosome PLINK filesets (shared SSGAC resource).
+export GENO_SRC="${GENO_SRC:-gs://ssgac-shared-genotype-resources-2026/hm3_filtered_plink1}"
+# AoU v9 genetic-ancestry predictions (requester-pays bucket: fetches bill
+# BILLING_PROJECT).
+export ANC_SRC="${ANC_SRC:-gs://vwb-aou-datasets-controlled/v9/wgs/short_read/snpindel/aux/ancestry/ancestry_preds.tsv}"
+# Instructor-staged PGI weight file (rsID, effect allele, weight; header).
+export WEIGHTS_URI="${WEIGHTS_URI:-${WORKSHOP_BUCKET:+$WORKSHOP_BUCKET/pgi_workshop/height_weights.txt}}"
+# Phenotype teaching subset: keep 1 person in SAMPLE_MOD (by person_id).
+# 10 => ~a tenth of the cohort: fast queries, quick joins. 1 => everyone.
+export SAMPLE_MOD="${SAMPLE_MOD:-10}"

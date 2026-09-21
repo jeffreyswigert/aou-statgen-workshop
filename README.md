@@ -91,6 +91,32 @@ Figures are PNGs in `results/`; open them from the JupyterLab file browser.
 Session 2 additionally needs python3 with numpy and matplotlib (preinstalled
 on AoU Workbench VMs).
 
+## Session 3: live on v9 — a real phenotype and a real PGI
+
+The third session (20 min instruction, 40 min hands-on) runs the same
+workflow against **real All of Us v9 data**: everyone needs Controlled Tier
+access and instructor-supplied workspace values.
+
+```bash
+cp config.aou.example.sh config.aou.sh    # fill the projected values
+export WORKSHOP_CONFIG=config.aou.sh      # per terminal!
+bash scripts/00_preflight.sh
+bash scripts/10_fetch_aou_genotypes.sh    # one HM3-filtered chromosome + ancestry file
+bash scripts/11_build_phenotype.sh        # height from the CDR (concept 903133)
+bash scripts/12_pheno_eda.sh              # cleaning funnel + figures
+bash scripts/13_score_real_pgi.sh         # instructor-staged weights -> PGI + ancestry KDE
+bash scripts/04_save.sh                   # disclosure gate is live in AoU mode
+```
+
+- `lab3_handout.pdf` — session-3 lab instructions (plausibility checks — no
+  answer key: your numbers are real).
+- `aou_realdata_workshop.pdf` — the session-3 slides.
+- Printed outputs are aggregate, rounded to the nearest 100, and
+  suppression-screened; person-level files stay in the workspace, always.
+- The whole pipeline (minus BigQuery) also rehearses in the local sandbox:
+  `source <sandbox>/env.sh`, then the same commands with `DEMO_WEIGHTS=1`
+  for the scoring step.
+
 ## Stretch exercise: a real phenotype
 
 With Controlled Tier access and `CDR_DATASET` + `BILLING_PROJECT` set in

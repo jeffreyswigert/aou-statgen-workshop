@@ -64,6 +64,33 @@ fake data. Source its `env.sh`, run the same four commands unchanged, and the
 save lands in a fake local bucket. Ask your instructor for the sandbox
 repository.
 
+## Session 2: build and explore a polygenic index
+
+The follow-up session (30 min instruction, 30 min hands-on) turns session 1's
+per-variant world into the object social-science genomics actually uses. In
+the same folder:
+
+```bash
+ls results/qc.pgen || bash scripts/02_qc.sh   # session-1 QC, if missing
+bash scripts/07_score_pgi.sh                  # PGI from external-style weights
+bash scripts/08_pgi_eda.sh                    # summary table + three figures
+bash scripts/04_save.sh
+```
+
+- `lab2_handout.pdf` — session-2 lab instructions and answers.
+- `aou_pgi_workshop.pdf` — the session-2 slides.
+- `data/pgi_weights.txt` — synthetic weights in a published-consortium format,
+  deliberately imperfect: partial coverage, flipped-orientation rows (harmless,
+  and you'll learn why), and 15 foreign rsIDs (silent non-matches).
+- `data/groups.tsv` — a randomized `treatment` (PGI balanced: −0.01 SD) and a
+  self-selected `enrolled` (PGI shifted: +0.46 SD — selection and structure,
+  not biology). Reading that difference correctly is the point of the session.
+- `expected/pgi_summary.txt` — reference EDA output.
+
+Figures are PNGs in `results/`; open them from the JupyterLab file browser.
+Session 2 additionally needs python3 with numpy and matplotlib (preinstalled
+on AoU Workbench VMs).
+
 ## Stretch exercise: a real phenotype
 
 With Controlled Tier access and `CDR_DATASET` + `BILLING_PROJECT` set in

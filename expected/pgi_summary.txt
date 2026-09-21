@@ -1,0 +1,25 @@
+PGI exploratory analysis (all data synthetic)
+
+People scored and matched across all files: 588
+PGI (standardized): mean +0.00, sd 1.00, quartiles -0.70 / +0.01 / +0.64
+
+corr(PGI, trait)                     = +0.375
+R2, trait ~ PGI alone                = 0.141
+R2, trait ~ covariates               = 0.255
+R2, trait ~ covariates + PGI         = 0.318
+INCREMENTAL R2 of the PGI            = 0.063
+
+treatment (randomized):
+  treatment=0: n=281  mean PGI=+0.004  sd=0.982
+  treatment=1: n=307  mean PGI=-0.004  sd=1.016
+  standardized difference: -0.008 SD
+
+enrolled (self-selected):
+  enrolled=0: n=320  mean PGI=-0.208  sd=0.918
+  enrolled=1: n=268  mean PGI=+0.248  sd=1.036
+  standardized difference: +0.456 SD
+
+Reading: the randomized arms should match (balance IS the finding);
+the enrolled groups differ -- not because enrolling edits genomes, but
+because self-selection correlates with structure the weights carry.
+Same rule as ever: aggregates only; screen before anything leaves.

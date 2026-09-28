@@ -30,9 +30,16 @@ run_id="$(date -u +%Y%m%dT%H%M%SZ)-$(python3 -c 'import uuid; print(uuid.uuid4()
 mkdir -p runs
 
 # The manifest records the settings, the plink version, and a sha256 checksum
-# of every input file. Same checksum later = provably the same data.
+# of every input file. Same checksum later = provably the same data. Because
+# this folder is a git clone, we also record WHICH VERSION OF THE CODE ran:
+# the commit hash ties the archive to an exact, retrievable state of the
+# GitHub repo ("-dirty" flags uncommitted local edits -- provenance you can
+# see). This is the cheap half of reproducibility; the checksums are the rest.
+code_version="$(git rev-parse --short HEAD 2>/dev/null || echo not-a-git-checkout)"
+[[ -z "$(git status --porcelain 2>/dev/null)" ]] || code_version="$code_version-dirty"
 manifest="results/run_manifest.txt"
 {
+  printf 'code_version=%s\n' "$code_version"
   printf 'data_mode=%s\ncdr_dataset=%s\ninput_prefix=%s\n' "$DATA_MODE" "$CDR_DATASET" "$INPUT_PREFIX"
   "$PLINK2" --version
   sha256sum "$INPUT_PREFIX.pgen" "$INPUT_PREFIX.pvar" "$INPUT_PREFIX.psam" "$PHENO_FILE" "$COVAR_FILE"

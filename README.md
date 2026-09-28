@@ -97,6 +97,20 @@ the name confirms it) and suppresses counts of 1–20. Find the same phenotype
 in the public [Data Browser](https://databrowser.researchallofus.org) to see
 where concept IDs come from.
 
+## GitHub in the All of Us flow
+
+This repo is itself the demonstration: code is developed and versioned
+*outside* the Controlled Tier perimeter, then `git clone`d onto the
+Workbench VM (public repos need no credentials there) and updated with
+`git pull`. Code crosses the boundary freely, in both directions; **data
+never does**. What belongs in a research repo: scripts, config *templates*,
+docs, synthetic fixtures. What never does: participant-level files, results,
+filled configs (`config.aou.sh` is git-ignored on purpose), or notebooks
+with outputs — a saved `.ipynb` embeds its cell outputs. Treat `.gitignore`
+as a compliance tool. The save step records the repo's commit hash in every
+run manifest (`code_version=`, with a `-dirty` flag for uncommitted edits),
+so each archived run points at the exact code that produced it.
+
 ## Two habits this workshop teaches
 
 **Compliance as a default.** `scripts/check_disclosure.py` runs inside every

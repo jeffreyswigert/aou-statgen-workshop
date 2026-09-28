@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 11_build_phenotype.sh (session 3) -- build a REAL phenotype from the v9 CDR.
+# 11_build_phenotype.sh (Lab 1, live data) -- build a REAL phenotype from the v9 CDR.
 #
 # Two BigQuery pulls, then Python cleaning:
 #   1. standing height records: program physical-measurement SOURCE concept

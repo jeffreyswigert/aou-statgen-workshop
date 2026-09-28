@@ -21,7 +21,10 @@ export GENO_SRC="${GENO_SRC:-gs://ssgac-shared-genotype-resources-2026/hm3_filte
 # AoU v9 genetic-ancestry predictions (requester-pays bucket: fetches bill
 # BILLING_PROJECT).
 export ANC_SRC="${ANC_SRC:-gs://vwb-aou-datasets-controlled/v9/wgs/short_read/snpindel/aux/ancestry/ancestry_preds.tsv}"
-# Instructor-staged PGI weight file (rsID, effect allele, weight; header).
+# PGI weight file: GWAS summary statistics the instructor posts to the
+# shared USC pod bucket, converted to three columns (rsID, effect allele,
+# weight; one header line). Point WEIGHTS_URI at that gs:// object -- it may
+# live in the pod's shared bucket rather than this workspace's own.
 export WEIGHTS_URI="${WEIGHTS_URI:-${WORKSHOP_BUCKET:+$WORKSHOP_BUCKET/pgi_workshop/height_weights.txt}}"
 # Phenotype teaching subset: keep 1 person in SAMPLE_MOD (by person_id).
 # 10 => ~a tenth of the cohort: fast queries, quick joins. 1 => everyone.

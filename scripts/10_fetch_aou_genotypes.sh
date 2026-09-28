@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 10_fetch_aou_genotypes.sh (session 3) -- stage REAL genotype data on the VM.
+# 10_fetch_aou_genotypes.sh (Lab 1, live data) -- stage REAL genotype data on the VM.
 #
 # Copies one chromosome of the HapMap3-filtered PLINK filesets from the shared
 # SSGAC bucket (about 1-2 GB: a couple of minutes inside Google's network),

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 12_pheno_eda.sh (session 3) -- look at the real phenotype before any model.
+# 12_pheno_eda.sh (Lab 1, live data) -- look at the real phenotype before any model.
 # Reads results/aou_pheno.tsv; writes an aggregate summary and two figures.
 # All printed numbers are aggregate, suppression- and rounding-screened.
 source "$(dirname "$0")/common.sh"

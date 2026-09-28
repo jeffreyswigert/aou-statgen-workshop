@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EDA for the real phenotype (session 3). Aggregates only on screen.
+"""EDA for the real phenotype (Lab 1, live data). Aggregates only on screen.
 
 Reads results/aou_pheno.tsv. Writes:
   results/aou_pheno_summary.txt     distribution table, by sex

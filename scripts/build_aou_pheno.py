@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Clean the raw CDR pulls into one analysis row per person (session 3).
+"""Clean the raw CDR pulls into one analysis row per person (Lab 1, live data).
 
 Input (from 11_build_phenotype.sh):
   results/raw_height.csv   person_id, value_as_number   (many rows per person)

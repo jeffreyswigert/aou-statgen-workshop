@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EDA for the real-data PGI (session 3): joins, one honest table, one figure.
+"""EDA for the real-data PGI (Lab 1, live data): joins, one honest table, one figure.
 
 Joins three real files, each with its own key quirk -- this is the session's
 ID-discipline exam:
@@ -52,7 +52,7 @@ out = ['Real-data PGI EDA -- aggregates only', '',
        ' one underlying id. The join is on the value, checked, never assumed.)', '',
        f'corr(PGI, within-sex height z)         = {r:+.3f}',
        f'R2 (one-chromosome PGI, alone)         = {r*r:.4f}', '',
-       'Reading: a one-chromosome PGI from teaching weights is deliberately',
+       'Reading: a one-chromosome PGI is deliberately',
        'weak -- what matters is that YOU built it on real data, counted every',
        'match and join, and can read its distribution below honestly.']
 

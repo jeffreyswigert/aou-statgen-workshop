@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 13_score_real_pgi.sh (session 3) -- build a PGI on REAL AoU genotypes.
+# 13_score_real_pgi.sh (Lab 1, live data) -- build a PGI on REAL AoU genotypes.
 #
 # Same mechanics as session 2's synthetic run, now with real files and real
 # match-counting: fetch the instructor-staged weight file, score the staged
@@ -44,6 +44,8 @@ p2 --bfile "lab_data/chr${CHROM}_filtered" \
 grep -E 'variants processed|skipped' results/aou_pgi.log || true
 
 python3 scripts/aou_pgi_eda.py
+
+printf 'Next: bash scripts/14_pgi_regression.sh\n'
 
 # TRY IT: how sensitive is the PGI to coverage? Re-score with a different
 # chromosome (CHROM=21 bash scripts/10_fetch_aou_genotypes.sh, then re-run

@@ -1,5 +1,13 @@
 # Statistical genetics on All of Us: hands-on with your Workbench
 
+> **The lab now lives in its own lean repository:**
+> **[github.com/jeffreyswigert/aou-statgen-lab](https://github.com/jeffreyswigert/aou-statgen-lab)**
+> — just the six lab scripts (renumbered 01–06, annotated for coding
+> newcomers), the slides, and the handout. Clone that one for class. This
+> repository remains as the full workshop archive: the synthetic
+> self-study track, the phenotype-menu stretch exercise, and the older
+> session materials.
+
 Materials for a one-hour workshop — **Lab 1** — run entirely on **real
 All of Us v9 data** (Controlled Tier required): 20 minutes of instruction and
 40 hands-on minutes in which you

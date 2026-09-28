@@ -13,8 +13,8 @@ source "$(dirname "$0")/common.sh"
 # the PGI Repository) in the workshop bucket. Format: header line, then
 # columns  rsid  effect_allele  weight.
 # Rehearsal path: DEMO_WEIGHTS=1 fabricates weights from the staged .bim --
-# CLEARLY LABELED noise, for testing plumbing only (in the sandbox there is
-# no instructor bucket to fetch from).
+# CLEARLY LABELED noise, for testing plumbing when the staged file is not
+# reachable.
 weights=lab_data/height_weights.txt
 if [[ ! -s "$weights" ]]; then
   if [[ "${DEMO_WEIGHTS:-}" == 1 ]]; then

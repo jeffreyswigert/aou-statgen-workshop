@@ -25,8 +25,6 @@ printed at all): the funnel remains readable without any cell, or difference
 of cells, disclosing a small participant count. Exact Ns live only in the
 files that stay in the workspace.
 
---from-sandbox: no CDR in the sandbox; adapt its pre-built height.pheno and
-covar.txt into the same output schema so sessions rehearse end to end.
 """
 import csv, statistics, sys
 from pathlib import Path
@@ -40,28 +38,6 @@ def write_out(rows):
         w.writerow(['person_id', 'height_cm', 'height_z', 'age', 'sex'])
         w.writerows(rows)
 
-if '--from-sandbox' in sys.argv:
-    # Real .pheno files (and the sandbox's, on purpose) can contain literal
-    # 'NA' -- treating it as a number crashes; treating it as data poisons
-    # means. Drop those rows, and COUNT what was dropped.
-    pheno, n_na = {}, 0
-    for l in Path('lab_data/height.pheno').read_text().splitlines():
-        fid, iid, v = l.split()
-        if v == 'NA':
-            n_na += 1
-        else:
-            pheno[iid] = float(v)
-    print(f'Dropped rows with NA phenotype: {rounded(n_na)}')
-    covar = {l.split()[1]: (l.split()[2], l.split()[3])
-             for l in Path('lab_data/covar.txt').read_text().splitlines()}
-    sexmap = {'1': 'Male', '2': 'Female'}    # plink-style 1/2 coding -> labels
-    rows = [[iid, f'{v:.4f}', f'{v:.4f}', covar.get(iid, ('', ''))[1],
-             sexmap.get(covar.get(iid, ('', ''))[0], 'other')]
-            for iid, v in sorted(pheno.items())]
-    write_out(rows)
-    print(f'SANDBOX phenotype adapted: ~{rounded(len(rows))} people '
-          '(values are pre-standardized fixture numbers, not centimeters).')
-    sys.exit(0)
 
 heights = {}
 with open('results/raw_height.csv') as f:

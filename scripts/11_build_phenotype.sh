@@ -14,16 +14,6 @@
 # a fast teaching subset (~a tenth of the cohort). SAMPLE_MOD=1 pulls all.
 source "$(dirname "$0")/common.sh"
 
-# --- Sandbox rehearsal path. The sandbox has no BigQuery; it ships a ------
-# --- pre-built phenotype instead, which is exactly how its README says ----
-# --- CDR-derived inputs enter. Downstream scripts test fine either way. ---
-if [[ -n "${AOU_SANDBOX_ROOT:-}" ]]; then
-  echo 'SANDBOX: no BigQuery here. Using the sandbox pre-built height phenotype.'
-  gsutil cp gs://ssgac-shared-phenotype-resources-2026/phenotypes/height.pheno lab_data/
-  gsutil cp gs://ssgac-shared-phenotype-resources-2026/phenotypes/covar.txt lab_data/
-  python3 scripts/build_aou_pheno.py --from-sandbox
-  exit 0
-fi
 
 command -v bq >/dev/null || { echo 'bq (BigQuery CLI) not found -- run on the AoU Workbench VM.' >&2; exit 1; }
 : "${CDR_DATASET:?Set CDR_DATASET (project.dataset of the CDR) in your config}"

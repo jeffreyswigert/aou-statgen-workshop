@@ -12,8 +12,7 @@ export WORKSHOP_BUCKET=''
 export BILLING_PROJECT=''
 export CDR_DATASET=''
 
-# --- Session 3 (live v9 data). Defaults are the real resource paths; the ---
-# --- local sandbox redirects them by setting the same variables.         ---
+# --- Live v9 data. Defaults are the real resource paths.                 ---
 # Which chromosome to stage and score (small ones keep the lab fast).
 export CHROM="${CHROM:-22}"
 # HapMap3-filtered per-chromosome PLINK filesets (shared SSGAC resource).

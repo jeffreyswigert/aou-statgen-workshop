@@ -37,4 +37,3 @@ Mills, Melinda C., Nicola Barban, and Felix C. Tropf. 2020. *An Introduction to 
 
 ## Repository limitation
 
-The requested URL was interpreted as `https://github.com/JonJala/aou_sandbox` (the word “and” was attached to the end in the prompt). The GitHub connector returned 404 for the repository and contents; repository search found no accessible match; a public raw README request also returned 404. No contents were inferred. This draft does not claim to use or modify Jon's repository.

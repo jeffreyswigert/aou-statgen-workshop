@@ -45,9 +45,8 @@ export MEMORY_MB=1024
 
 # Where scripts/04_save.sh copies the run archive. Must be a bucket this
 # workspace is authorized to write to.
-# WORKSHOP_BUCKET falls back to WORKSPACE_BUCKET when that is set, so the same
-# scripts run unchanged inside the local AoU sandbox (source its env.sh first)
-# and against a real authorized bucket. Verify the value before an AoU save.
+# WORKSHOP_BUCKET falls back to WORKSPACE_BUCKET when that platform
+# variable is set. Verify the value before an AoU save.
 export WORKSHOP_BUCKET="${WORKSHOP_BUCKET:-${WORKSPACE_BUCKET:-}}"
 
 # The Google Cloud project that pays for storage/query operations, and the
@@ -56,9 +55,8 @@ export WORKSHOP_BUCKET="${WORKSHOP_BUCKET:-${WORKSPACE_BUCKET:-}}"
 export BILLING_PROJECT="${BILLING_PROJECT:-}"
 export CDR_DATASET="${CDR_DATASET:-}"
 
-# --- Session 3 (live v9 data) resource locations. Defaults are the REAL ---
-# --- platform paths; sourcing the local sandbox's env.sh redirects them ---
-# --- by exporting the same names. See config.aou.example.sh for notes.  ---
+# --- Live v9 data resource locations. Defaults are the real platform ---
+# --- paths. See config.aou.example.sh for notes.                       ---
 export CHROM="${CHROM:-22}"
 export GENO_SRC="${GENO_SRC:-gs://ssgac-shared-genotype-resources-2026/hm3_filtered_plink1}"
 export ANC_SRC="${ANC_SRC:-gs://vwb-aou-datasets-controlled/v9/wgs/short_read/snpindel/aux/ancestry/ancestry_preds.tsv}"

@@ -7,8 +7,6 @@
 # Cloud files must be copied to the VM disk before PLINK can read them --
 # nothing streams from gs:// on its own.
 #
-# The same script runs against the local sandbox: source the sandbox's env.sh
-# and these gs:// URIs resolve to local fixture files instead.
 source "$(dirname "$0")/common.sh"
 mkdir -p lab_data
 

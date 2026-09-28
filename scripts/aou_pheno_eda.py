@@ -30,7 +30,7 @@ def block(name, x):
             f'IQR {q[0]:.1f} / {q[1]:.1f} / {q[2]:.1f}')
 
 out = ['Real-phenotype EDA -- aggregates only; person-level file stays in the workspace', '',
-       'Height (as recorded; sandbox rehearsal shows standardized fixture values):',
+       'Height (as recorded):',
        block('everyone', h)]
 for s in ('Male', 'Female', 'other'):
     m = sex == s

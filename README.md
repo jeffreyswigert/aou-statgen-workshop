@@ -62,8 +62,8 @@ runs a disclosure screen that **blocks** on findings in AoU mode.
 
 ## Optional self-study: the synthetic track
 
-Two earlier, fully synthetic modules remain in this repo for practice without
-Controlled Tier access, at home or in the free local sandbox. **No All of Us
+Two earlier, fully synthetic modules remain in this repo for practice
+without Controlled Tier access, on any machine. **No All of Us
 participant records are involved** in this track, and none of its results
 have biological meaning.
 
@@ -119,7 +119,7 @@ as a compliance tool. The save step records the repo's commit hash in every
 run manifest (`code_version=`, with a `-dirty` flag for uncommitted edits),
 so each archived run points at the exact code that produced it.
 
-## Two habits this workshop teaches
+## A habit this workshop teaches
 
 **Compliance as a default.** `scripts/check_disclosure.py` runs inside every
 save: it lists participant-level files that must stay in the workspace and
@@ -128,13 +128,6 @@ reported numbers — which the AoU Data and Statistics Dissemination Policy
 restricts. In AoU mode a finding blocks the save until fixed or explicitly
 acknowledged after review. Adapt it to your own pipelines; it complements
 manual review of text, figures, and percentages, never replaces it.
-
-**Test the plumbing before you pay for a VM.** Every Lab 1 script (except the
-BigQuery step, which substitutes a fixture) also runs on your laptop against
-a local All of Us sandbox that mirrors the platform's paths, file names, and
-environment variables with fake data. Source its `env.sh`, run the same
-commands (`DEMO_WEIGHTS=1` for the scoring step), and even the cloud save
-lands in a fake local bucket. Ask your instructor for the sandbox repository.
 
 ## After the workshop
 

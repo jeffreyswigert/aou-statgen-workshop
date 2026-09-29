@@ -54,11 +54,3 @@ export WORKSHOP_BUCKET="${WORKSHOP_BUCKET:-${WORKSPACE_BUCKET:-}}"
 # Both are needed only for cloud saving and the live-phenotype exercise.
 export BILLING_PROJECT="${BILLING_PROJECT:-}"
 export CDR_DATASET="${CDR_DATASET:-}"
-
-# --- Live v9 data resource locations. Defaults are the real platform ---
-# --- paths. See config.aou.example.sh for notes.                       ---
-export CHROM="${CHROM:-22}"
-export GENO_SRC="${GENO_SRC:-gs://ssgac-shared-genotype-resources-2026/hm3_filtered_plink1}"
-export ANC_SRC="${ANC_SRC:-gs://vwb-aou-datasets-controlled/v9/wgs/short_read/snpindel/aux/ancestry/ancestry_preds.tsv}"
-export WEIGHTS_URI="${WEIGHTS_URI:-${WORKSHOP_BUCKET:+$WORKSHOP_BUCKET/pgi_workshop/height_weights.txt}}"
-export SAMPLE_MOD="${SAMPLE_MOD:-10}"

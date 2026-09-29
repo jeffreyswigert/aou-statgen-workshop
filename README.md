@@ -1,69 +1,24 @@
-# Statistical genetics on All of Us: hands-on with your Workbench
+# All of Us statistical genetics: archived sessions
 
-> **The lab now lives in its own lean repository:**
-> **[github.com/jeffreyswigert/aou-statgen-lab](https://github.com/jeffreyswigert/aou-statgen-lab)**
-> — just the six lab scripts (renumbered 01–06, annotated for coding
-> newcomers), the slides, and the handout. Clone that one for class. This
-> repository remains as the full workshop archive: the synthetic
-> self-study track, the phenotype-menu stretch exercise, and the older
-> session materials.
-
-Materials for a one-hour workshop — **Lab 1** — run entirely on **real
-All of Us v9 data** (Controlled Tier required): 20 minutes of instruction and
-40 hands-on minutes in which you
-
-1. **explore** a real variable (summary statistics and histograms),
-2. **construct a phenotype** from raw CDR records — QC'd, plausibility-bounded,
-   one row per person,
-3. **build a PGI** with PLINK on a single chromosome, from GWAS summary
-   statistics posted to the shared USC pod bucket, and
-4. **run a basic regression** that incorporates the PGI.
-
-The goal is confidence with your *actual* Workbench: real queries, real
-files, real conventions, real rules.
-
-## Lab 1 quick start (on your AoU Workbench VM)
-
-Open a Terminal from the JupyterLab Launcher, then:
-
-```bash
-git clone https://github.com/jeffreyswigert/aou-statgen-workshop.git aou_cli_workshop
-cd aou_cli_workshop
-cp config.aou.example.sh config.aou.sh    # fill the values your instructor projects
-export WORKSHOP_CONFIG=config.aou.sh      # per terminal!
-bash scripts/00_preflight.sh
-bash scripts/10_fetch_aou_genotypes.sh    # one HM3-filtered chromosome + ancestry file
-bash scripts/11_build_phenotype.sh        # height from the CDR (source concept 903133)
-bash scripts/12_pheno_eda.sh              # cleaning funnel, summary stats, histograms
-bash scripts/13_score_real_pgi.sh         # posted GWAS weights -> PGI + ancestry KDE
-bash scripts/14_pgi_regression.sh         # height_z ~ PGI + age + sex + 5 PCs
-bash scripts/04_save.sh                   # disclosure gate is live in AoU mode
-```
-
-Follow along in `lab1_handout.pdf`; `aou_realdata_workshop.pdf` is the slide
-deck. There is **no answer key** — your numbers are real; the handout gives
-plausibility checks instead. Figures are PNGs in `results/`; open them from
-the JupyterLab file browser.
-
-Ground rules baked into the scripts: person-level files never leave the
-workspace; printed counts are aggregate, rounded to the nearest 100, and
-counts of 1–20 are suppressed; every query is byte-capped; and the save step
-runs a disclosure screen that **blocks** on findings in AoU mode.
+> **This repository is an archive.** The workshop is
+> **[github.com/jeffreyswigert/aou-statgen-lab](https://github.com/jeffreyswigert/aou-statgen-lab)**:
+> clone that one for class. Everything here is draft material for possible
+> later sessions, kept for reference. The Lab 1 materials that used to live
+> here have been removed; the current slides, scripts, and cheat sheet are in
+> `aou-statgen-lab`.
 
 ## What's here
 
-- `lab1_handout.pdf` / `aou_realdata_workshop.pdf` — the workshop.
-- `scripts/` — short, heavily commented Bash and Python; read each one before
-  running it. Each ends with a TRY IT.
-- `config.aou.example.sh` — template for the values your instructor supplies
-  (bucket, billing project, CDR dataset, weights location).
-- `docs/SOURCES.md` — the readings and every platform/software reference used.
-- A **synthetic self-study track** and a **stretch exercise** (below).
+- A **synthetic self-study track** (below): slides, handouts, and scripts that
+  run on any machine with simulated data.
+- A **stretch exercise** that summarizes more real phenotypes from the CDR.
+- `scripts/check_disclosure.py`, the disclosure check also used in the lab.
+- `docs/SOURCES.md`: readings and platform/software references.
 
-## Optional self-study: the synthetic track
+## Self-study: the synthetic track
 
-Two earlier, fully synthetic modules remain in this repo for practice
-without Controlled Tier access, on any machine. **No All of Us
+Two fully synthetic modules for practice without Controlled Tier
+access, on any machine. **No All of Us
 participant records are involved** in this track, and none of its results
 have biological meaning.
 
@@ -91,7 +46,8 @@ bash scripts/07_score_pgi.sh && bash scripts/08_pgi_eda.sh
 
 ## Stretch exercise: summarize more real phenotypes
 
-With your Lab 1 config in place, `data/pheno_menu.tsv` offers nine real
+Requires Controlled Tier access, with `CDR_DATASET` and `BILLING_PROJECT`
+filled in `config.sh`. `data/pheno_menu.tsv` offers nine real
 phenotypes spanning program measurements, EHR labs, surveys, and EHR
 conditions, each annotated with its source type's trap:
 
@@ -105,21 +61,7 @@ the name confirms it) and suppresses counts of 1–20. Find the same phenotype
 in the public [Data Browser](https://databrowser.researchallofus.org) to see
 where concept IDs come from.
 
-## GitHub in the All of Us flow
-
-This repo is itself the demonstration: code is developed and versioned
-*outside* the Controlled Tier perimeter, then `git clone`d onto the
-Workbench VM (public repos need no credentials there) and updated with
-`git pull`. Code crosses the boundary freely, in both directions; **data
-never does**. What belongs in a research repo: scripts, config *templates*,
-docs, synthetic fixtures. What never does: participant-level files, results,
-filled configs (`config.aou.sh` is git-ignored on purpose), or notebooks
-with outputs — a saved `.ipynb` embeds its cell outputs. Treat `.gitignore`
-as a compliance tool. The save step records the repo's commit hash in every
-run manifest (`code_version=`, with a `-dirty` flag for uncommitted edits),
-so each archived run points at the exact code that produced it.
-
-## A habit this workshop teaches
+## The disclosure check
 
 **Compliance as a default.** `scripts/check_disclosure.py` runs inside every
 save: it lists participant-level files that must stay in the workspace and
@@ -128,13 +70,3 @@ reported numbers — which the AoU Data and Statistics Dissemination Policy
 restricts. In AoU mode a finding blocks the save until fixed or explicitly
 acknowledged after review. Adapt it to your own pipelines; it complements
 manual review of text, figures, and percentages, never replaces it.
-
-## After the workshop
-
-These scripts demonstrate a workflow, not a complete AoU analysis protocol:
-ordinary regression does not account for relatives, five PCs are a convention
-rather than a guarantee, a one-chromosome PGI is deliberately partial, and
-real phenotype definitions need release-specific care. To scale up: set
-`SAMPLE_MOD=1` for the full cohort, loop `CHROM` over 1–22 and sum the
-`.sscore` SUM columns, and swap in your own trait's concept ID and weights.
-The readings in `docs/SOURCES.md` are the next step.
